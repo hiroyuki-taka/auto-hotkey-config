@@ -56,20 +56,21 @@
 ;
 ; 動作確認用 内部ルーチン (マウスカーソル位置のウィンドウのIME状態を見る)
 ;  単体起動時のテスト用なので削除しても問題なし
-_ImeAutoExecuteSample:
-    Hotkey,#1,_ImeGetTest
-    Hotkey,#2,_ImeSetTest
-    Hotkey,#3,_ImeIsConvertingTest
-    Hotkey,+ESC,_ImeTestExt
-    SetTimer,_ImeInfoTimer,ON
-return
+;_ImeAutoExecuteSample:
+;    Hotkey,#1,_ImeGetTest
+;    Hotkey,#2,_ImeSetTest
+;    Hotkey,#3,_ImeIsConvertingTest
+;    Hotkey,+ESC,_ImeTestExt
+;    SetTimer,_ImeInfoTimer,ON
+;return
 
 ;--- IME状態表示タイマ ---
 _ImeInfoTimer:
     Tooltip,% "IME_GET			: "     . IME_GET(_mhwnd())             . "`n"
           .  "IME_GetConvMode		: " . IME_GetConvMode(_mhwnd())     . "`n"
           .  "IME_GetSentenceMode	: " . IME_GetSentenceMode(_mhwnd()) . "`n"
-          .  "IME_GetConverting	: "     . IME_GetConverting(_mhwnd())
+          .  "IME_GetConverting	: "     . IME_GetConverting(_mhwnd())   . "`n"
+          .  "A_PriorKey : " . A_PriorKey
 return
 
 ;--- IME Get Test [Win]+[1] ---
