@@ -1,11 +1,17 @@
 #include "Lib/IME.ahk"
 
+#KeyHistory 1
+
 ; 左ALTでIME off
 LAlt up::
-    IME_SET(0)
+    if (A_PriorKey) { ; 左ALTのdownだったら
+        IME_SET(0)
+    }
     Return
 
-; 左ALTでIME on
+; 右ALTでIME on
 RAlt up::
-    IME_SET(1)
+    if (A_PriorKey) { ; 右ALTのdownだったら
+        IME_SET(1)
+    }
     Return
