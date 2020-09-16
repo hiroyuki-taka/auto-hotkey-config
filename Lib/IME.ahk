@@ -65,31 +65,31 @@
 ;return
 
 ;--- IME状態表示タイマ ---
-_ImeInfoTimer:
-    Tooltip,% "IME_GET			: "     . IME_GET(_mhwnd())             . "`n"
-          .  "IME_GetConvMode		: " . IME_GetConvMode(_mhwnd())     . "`n"
-          .  "IME_GetSentenceMode	: " . IME_GetSentenceMode(_mhwnd()) . "`n"
-          .  "IME_GetConverting	: "     . IME_GetConverting(_mhwnd())   . "`n"
-          .  "A_PriorKey : " . A_PriorKey
-return
+;_ImeInfoTimer:
+;    Tooltip,% "IME_GET			: "     . IME_GET(_mhwnd())             . "`n"
+;          .  "IME_GetConvMode		: " . IME_GetConvMode(_mhwnd())     . "`n"
+;          .  "IME_GetSentenceMode	: " . IME_GetSentenceMode(_mhwnd()) . "`n"
+;          .  "IME_GetConverting	: "     . IME_GetConverting(_mhwnd())   . "`n"
+;          .  "A_PriorKey : " . A_PriorKey
+;return
 
 ;--- IME Get Test [Win]+[1] ---
-_ImeGetTest:
-    MsgBox,% "IME_GET			: "     . IME_GET(_mhwnd())             . "`n"
-          .  "IME_GetConvMode		: " . IME_GetConvMode(_mhwnd())     . "`n"
-          .  "IME_GetSentenceMode	: " . IME_GetSentenceMode(_mhwnd()) . "`n"
-return
+;_ImeGetTest:
+;    MsgBox,% "IME_GET			: "     . IME_GET(_mhwnd())             . "`n"
+;          .  "IME_GetConvMode		: " . IME_GetConvMode(_mhwnd())     . "`n"
+;          .  "IME_GetSentenceMode	: " . IME_GetSentenceMode(_mhwnd()) . "`n"
+;return
 ;--- IME Get Test [Win]+[2] ---
-_ImeSetTest:
-    MsgBox,% "IME_SET			: "     . IME_SET(1,_mhwnd())             . "`n"
-          .  "IME_SetConvMode		: " . IME_SetConvMode(0x08,_mhwnd())  . "`n"
-          .  "IME_SetSentenceMode	: " . IME_SetSentenceMode(1,_mhwnd()) . "`n"
-return
+;_ImeSetTest:
+;    MsgBox,% "IME_SET			: "     . IME_SET(1,_mhwnd())             . "`n"
+;          .  "IME_SetConvMode		: " . IME_SetConvMode(0x08,_mhwnd())  . "`n"
+;          .  "IME_SetSentenceMode	: " . IME_SetSentenceMode(1,_mhwnd()) . "`n"
+;return
 
-_mhwnd(){	;background test
-	MouseGetPos,x,,hwnd
-	return "ahk_id " . hwnd
-}
+;_mhwnd(){	;background test
+;	MouseGetPos,x,,hwnd
+;	return "ahk_id " . hwnd
+;}
 
 ;------------------------------------------------------------------
 ; IME窓のクラス名を調べるテストルーチン
@@ -112,19 +112,20 @@ _mhwnd(){	;background test
 ;  |　：　　|
 ;  ￣￣￣￣
 ;------------------------------------------------------------------
-_ImeIsConvertingTest:
-    _ImeTestClassCheck()
-return
-_ImeTestClassCheck()  {
-    MouseGetPos,,,hwnd
-    WinGetClass,Imeclass,ahk_id %hwnd%
-    Clipboard := Imeclass
-    ;IME_GetConverting() 動作チェック & IME 入力窓/候補窓 Class名確認
-    MsgBox,% Imeclass "`n" IME_GetConverting()
-}
+;_ImeIsConvertingTest:
+;    _ImeTestClassCheck()
+;return
+
+;_ImeTestClassCheck()  {
+;    MouseGetPos,,,hwnd
+;    WinGetClass,Imeclass,ahk_id %hwnd%
+;    Clipboard := Imeclass
+;    ;IME_GetConverting() 動作チェック & IME 入力窓/候補窓 Class名確認
+;    MsgBox,% Imeclass "`n" IME_GetConverting()
+;}
 ;--- 常駐テスト終了 [Shift]+[ESC] ---
-_ImeTestExt:
-ExitApp
+;_ImeTestExt:
+;ExitApp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 
 ;---------------------------------------------------------------------------
